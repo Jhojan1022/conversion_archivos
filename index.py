@@ -43,6 +43,14 @@ def convertir_tiff_a_grises_y_comprimir(ruta_entrada, ruta_salida, calidad=10):
             compression="tiff_jpeg",
             quality=calidad
         )
+
+        paginas_grises[0].save(
+            f"imagenes/{os.path.basename(ruta_salida)}",
+            save_all=True,
+            append_images=paginas_grises[1:],
+            compression="tiff_jpeg",
+            quality=calidad
+        )
     print("comprimido")
 
 
@@ -57,7 +65,7 @@ def seleccionarArchivosCompresion():
     except:
         pass
    
-    archivos_tiff = filedialog.askopenfilenames(filetypes=[("Archivos TIFF", "*.tiff")])
+    archivos_tiff = filedialog.askopenfilenames(filetypes=[("Archivos TIFF", ["*.tiff", "*.tif"])])
 
     if (archivos_tiff and cbabC == 1):
         compressImagesView.pack()
@@ -84,7 +92,7 @@ def seleccionarArchivosCompresion():
 def procesarCompressionP():
     for archivoC in archivosCompressSelected:
         convertir_tiff_a_grises_y_comprimir(archivoC, archivoC, calidad=int(dpiSeleccionadoCV.get()))
-
+        convertir_tiff_a_grises_y_comprimir(archivoC, archivoC, calidad=int(dpiSeleccionadoCV.get()))
     try:
         alertC.set('Comprimido')
     except:
