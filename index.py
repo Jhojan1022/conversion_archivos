@@ -80,7 +80,7 @@ def seleccionarArchivosCompresion():
         dpiSeleccionadoCompress.pack(padx=10, pady=10)
         buttonCompress.pack(padx=10, pady=10)
 
-        dpiSeleccionadoCV.set('70')
+        dpiSeleccionadoCV.set('100')
         #dpiSeleccionadoCV.config(text=dpiSeleccionadoCV.cget("text"))
 
         #for archivo in archivos_tiff:
@@ -148,7 +148,7 @@ def procesarCambioPdfTiff():
 
 def seleccionar_archivo():
     global imagenesFrm, listaImagenes, contadorImagenes, imgTemSelec, imgTemSelected, dpiSeleccionado, rutaArchivo
-    dpiSeleccionado.set('75')
+    dpiSeleccionado.set('100')
     imgTemSelected = []
     contadorImagenes = 0
 
@@ -221,7 +221,7 @@ def convertir_a_multi_tiff(lista_imagenes, output_path):
         save_all=True,
         append_images=imagenes_secundarias,
         compression="tiff_jpeg",
-        quality=30
+        quality=100
     )
 
     print(f"Archivo multi-TIFF guardado en: {output_path}")
